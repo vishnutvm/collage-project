@@ -6,19 +6,20 @@ import PageHeading from "../../components/Home/PageHeading";
 import { productData } from "../../components/Carousel/data";
 import CarousalItem from "../../components/Carousel/CarousalItem";
 import ProductCarousel from "../../components/Carousel/ProductCarousel";
+import ProductCategory from "../../components/Home/ProductCategory";
 
 const Home = () => {
   const Products = productData.map((item) => (
     <div key={item.id}>
-      <CarousalItem 
-      name={item.name}
-      url = {item.imageurl}
-      price = {item.price}
-      description = {item.description}
+      <CarousalItem
+        url = {item.imageurl}
+        name={item.name}
+        price={item.price}
+        description={item.description}
       />
-      </div>
+    </div>
   ));
-  
+
   return (
     <>
       <Slider />
@@ -26,7 +27,13 @@ const Home = () => {
         <div className="container">
           <HomeInfoBox />
           <PageHeading heading={"Latest Products"} btnText={"Shop Now >>>"} />
-          <ProductCarousel products = {Products} />
+          <ProductCarousel products={Products} />
+        </div>
+      </section>
+      <section className="--bt-grey">
+        <div className="container">
+          <h3>Categories</h3>
+          <ProductCategory />
         </div>
       </section>
     </>
