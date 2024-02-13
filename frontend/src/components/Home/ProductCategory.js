@@ -7,28 +7,32 @@ const ProductCategory = () => {
   const categories = [
     {
       id: 1,
-      title: "Gadgets",
+      title: "Mobile Phones",
       image: "https://i.ibb.co/5GVkd3m/c1.jpg",
     },
     {
       id: 2,
-      title: "Womens Fashion",
-      image: "https://i.ibb.co/nQKLjrW/c2.jpg",
+      title: "Laptops",
+      image:
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1697018907/Croma%20Assets/Computers%20Peripherals/Laptop/Images/272253_0_r84tjq.png?tr=w-1000",
     },
     {
       id: 3,
-      title: "Sport Sneakers",
-      image: "https://i.ibb.co/fNkBYgr/c3.jpg",
+      title: "Gaming Console",
+      image:
+        "https://techneek.ie/cdn/shop/files/Untitleddesign_aa225b3d-824e-4212-b70e-9e2873ad3f5b_2048x2048.png?v=1699446573",
     },
   ];
 
-  return <div className="categories">
-    {categories.map((cat)=>(
-        <div key ={cat.id} className="--flex-center">
-            <Category title = {cat.title} image = {cat.image} />
+  return (
+    <div className="categories">
+      {categories.map((cat) => (
+        <div key={cat.id} className="--flex-center">
+          <Category title={cat.title} image={cat.image} />
         </div>
-    ))}
-  </div>;
+      ))}
+    </div>
+  );
 };
 
 export default ProductCategory;
