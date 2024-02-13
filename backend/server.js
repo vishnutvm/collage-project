@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/userRoute");
+const errorHandler = require("./middleware/errorMiddleware");
+
 const app = express();
 
 app.use(express.json());
@@ -17,6 +19,8 @@ cors({
 
 const PORT = process.env.PORT || 5000;
 
+// Error Middleware
+app.use(errorHandler);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
