@@ -12,10 +12,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ urlencoded: false }));
 app.use
-cors({
-  origin: ["http://localhost:3000", "https://amplemart-app.vercel.app"],
-  credentials: true,
-});
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://shopito-app.vercel.app"],
+    credentials: true,
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 

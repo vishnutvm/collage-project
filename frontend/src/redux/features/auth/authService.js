@@ -2,7 +2,6 @@ import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API_URL = `${BACKEND_URL}/api/users/`;
-
 // Validate email
 export const validateEmail = (email) => {
   return email.match(
@@ -12,6 +11,7 @@ export const validateEmail = (email) => {
 
 // Register User
 const register = async (userData) => {
+  console.log("Api url ===", API_URL);
   const response = await axios.post(API_URL + "register", userData, {
     withCredentials: true,
   });
