@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ urlencoded: false }));
-app.use;
+app.use
 cors({
   origin: ["http://localhost:3000", "https://amplemart-app.vercel.app"],
   credentials: true,
