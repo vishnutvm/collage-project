@@ -10,10 +10,10 @@ import {
   updatePhoto,
   updateUser,
 } from "../../redux/features/auth/authSlice";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import { toast } from "react-toastify";
-import { shortenText } from "../../utils";
-import PageMenu from "../../components/pageMenu/PageMenu";
+import { shortenText } from "../../utils/utils";
+import PageMenu from "../../components/PageMenu/PageMenu";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 const cloud_name = process.env.REACT_APP_CLOUD_NAME;
@@ -59,7 +59,7 @@ const Profile = () => {
 
         // Save image to Cloudinary
         const response = await fetch(
-          "https://api.cloudinary.com/v1_1/zinotrust/image/upload",
+          `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
           { method: "post", body: image }
         );
         const imgData = await response.json();
