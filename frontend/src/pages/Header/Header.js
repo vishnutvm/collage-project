@@ -3,13 +3,18 @@ import styles from "./Header.module.scss";
 import Logo from "../../components/Logo/Logo";
 import Cart from "../../components/Cart/Cart";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
+import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import { FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -17,6 +22,14 @@ const Header = () => {
 
   const hideMenu = () => {
     setShowMenu(false);
+  };
+
+  const logoutUser = async () => {
+    dispatch(RESET_AUTH());
+    await dispatch(logout());
+    localStorage.setItem("cartItems", JSON.stringify([]));
+    navigate("/login");
+    window.location.reload();
   };
 
   return (
@@ -59,6 +72,9 @@ const Header = () => {
               </NavLink>
               <NavLink to="order-history" className={activeLink}>
                 My Order
+              </NavLink>
+              <NavLink to="/" onClick={logoutUser}>
+                Logout
               </NavLink>
             </span>
             <Cart />

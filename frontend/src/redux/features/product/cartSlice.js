@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import cartService from "./cartService";
-import { getCartQuantityById } from "../../../utils";
+import { getCartQuantityById } from "../../../utils/utils";
 const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
-// Apply discoount to cart
+// Apply discount to cart
 function applyDiscount(cartTotalAmount, discountPercentage) {
   var discountAmount = (discountPercentage / 100) * cartTotalAmount;
   var updatedTotal = cartTotalAmount - discountAmount;

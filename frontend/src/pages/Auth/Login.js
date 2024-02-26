@@ -1,25 +1,21 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Auth.module.scss";
 import loginImg from "../../assets/login.png";
-import { Link, useNavigate } from "react-router-dom";
-import Card from "../../components/card/Card";
 import { toast } from "react-toastify";
-import Loader from "../../components/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, login } from "../../redux/features/auth/authSlice";
+import Card from "../../components/card/Card";
+import Loader from "../../components/Loader/Loader";
+import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../redux/features/auth/authService";
-import { useSearchParams } from "react-router-dom";
-import { getCartDB, saveCartDB } from "../../redux/features/product/cartSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const { isLoggedIn, isLoading, isSuccess } = useSelector(
     (state) => state.auth
   );
-  const [urlParams] = useSearchParams();
-  console.log(urlParams.get("redirect"));
-  const redirect = urlParams.get("redirect");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,23 +38,12 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isLoggedIn && isSuccess) {
-      if (redirect === "cart") {
-        dispatch(
-          saveCartDB({
-            cartItems: JSON.parse(localStorage.getItem("cartItems")),
-          })
-        );
-        return navigate("/cart");
-      }
-      dispatch(getCartDB());
-      // navigate("/");
-      // window.location.reload();
+    if (isSuccess && isLoggedIn) {
+      navigate("/");
     }
 
     dispatch(RESET_AUTH());
-  }, [isSuccess, isLoggedIn, navigate, dispatch, redirect]);
-
+  }, [isLoggedIn, isSuccess, dispatch, navigate]);
   return (
     <>
       {isLoading && <Loader />}
