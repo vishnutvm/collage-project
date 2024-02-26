@@ -252,7 +252,6 @@ const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.user = null;
-        console.log("rejected");
         toast.error(action.payload);
       })
       // Login User
