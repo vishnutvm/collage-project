@@ -16,16 +16,25 @@ import {
   selectUser,
 } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile/Profile";
+import Admin from "./pages/Admin/Admin";
 
 axios.defaults.withCredentials = true;
 
 const App = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getLoginStatus());
     // console.log("Get Login Status App");
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn && user === null) {
+      dispatch(getUser());
+    }
+  }, [dispatch, isLoggedIn, user]);
 
   return (
     <>
@@ -36,6 +45,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/admin/*" element={<Admin />} />
         </Routes>
         <Footer />
       </BrowserRouter>

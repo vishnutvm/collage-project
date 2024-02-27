@@ -64,6 +64,11 @@ const Header = () => {
                 Shop
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/admin/home" className={activeLink}>
+                | &nbsp; Admin
+              </NavLink>
+            </li>
           </ul>
 
           <div className={styles["header-right"]}>
