@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const jwt = require("jsonwebtoken");
 
 const protect = asyncHandler(async (req, res, next) => {
   try {
@@ -9,9 +9,10 @@ const protect = asyncHandler(async (req, res, next) => {
       res.status(401);
       throw new Error("Not authorized, please login");
     }
-    const verified = jwt.verify(token, process.env.JWT_SECRET);
 
-    //Get user id from token
+    // Verify Token
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    // Get user id from token
     const user = await User.findById(verified.id).select("-password");
 
     if (!user) {
@@ -22,7 +23,7 @@ const protect = asyncHandler(async (req, res, next) => {
     next();
   } catch (error) {
     res.status(401);
-    throw new Error("Not authorized, Please login");
+    throw new Error("Not authorized, please login");
   }
 });
 
@@ -36,8 +37,3 @@ const adminOnly = (req, res, next) => {
 };
 
 module.exports = { protect, adminOnly };
-
-module.exports = {
-  protect,
-  adminOnly,
-};
