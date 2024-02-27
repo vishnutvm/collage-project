@@ -5,9 +5,12 @@ import Cart from "../../components/Cart/Cart";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaUserCircle } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import ShowOnLogin, { ShowOnLogout } from "../../components/HiddenLink/HiddenLink";
+import ShowOnLogin, {
+  ShowOnLogout,
+} from "../../components/HiddenLink/HiddenLink";
+import { UserName } from "../Profile/Profile";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -65,6 +68,12 @@ const Header = () => {
 
           <div className={styles["header-right"]}>
             <span className={styles.links}>
+              <ShowOnLogin>
+                <Link to="/profile">
+                  <FaUserCircle size={16} color="#ff7722" />
+                  <UserName />
+                </Link>
+              </ShowOnLogin>
               <ShowOnLogout>
                 <NavLink to="/login" className={activeLink}>
                   Login
