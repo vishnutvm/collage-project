@@ -41,6 +41,8 @@ const userSchema = mongoose.Schema({
   address: {
     type: Object,
   },
+}, {
+  timestamps: true,
 });
 
 //Hashing Password
