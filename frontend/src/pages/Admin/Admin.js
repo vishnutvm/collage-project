@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import styles from "./Admin.module.scss";
 import Navbar from "../../components/Admin/Navbar/Navbar";
 import AdminHome from "../../components/Admin/AdminHome/AdminHome";
@@ -12,6 +13,9 @@ const Admin = () => {
       </div>
       <div className={styles.content}>
         <AdminHome />
+        <Routes>
+          <Route path="category" element={<Category />} />
+        </Routes>
       </div>
     </div>
   );

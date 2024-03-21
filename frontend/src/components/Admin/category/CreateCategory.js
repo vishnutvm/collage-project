@@ -3,7 +3,6 @@ import Card from "../../card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../Loader/Loader";
 import { toast } from "react-toastify";
-// import { getCategories,createCategory } from "../../../redux/features/categoryAndBrand/categoryAndBrandService";
 import {
   createCategory,
   getCategories,
