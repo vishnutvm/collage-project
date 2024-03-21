@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+// import { getCategories,deleteCategory } from "../../../redux/features/categoryAndBrand/categoryAndBrandService";
 import {
   deleteCategory,
   getCategories,
-} from "../../../redux/features/categoryAndBrand/categoryAndBrandService";
+} from "../../../redux/features/categoryAndBrand/categoryAndBrandSlice";
 
 const CategoryList = () => {
   const { isLoading, categories } = useSelector((state) => state.category);

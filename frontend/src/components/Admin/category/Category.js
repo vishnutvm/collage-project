@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import CategoryList from "./CategoryList";
 import CreateCategory from "./CreateCategory";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../../../redux/features/categoryAndBrand/categoryAndBrandService";
+import { getCategories } from "../../../redux/features/categoryAndBrand/categoryAndBrandSlice";
 
 const Category = () => {
   const dispatch = useDispatch();
