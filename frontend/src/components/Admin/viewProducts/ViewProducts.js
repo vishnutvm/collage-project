@@ -7,14 +7,18 @@ import ReactPaginate from "react-paginate";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { Link } from "react-router-dom";
-
 import {
   deleteProduct,
   getProducts,
 } from "../../../redux/features/product/productSlice";
+import Search from "../../Admin/search/Search";
 import { Spinner } from "../../Loader/Loader";
-import { shortenText } from "../../../utils";
+import { shortenText } from "../../../utils/utils";
 import { selectIsLoggedIn } from "../../../redux/features/auth/authSlice";
+import {
+  FILTER_BY_SEARCH,
+  selectFilteredProducts,
+} from "../../../redux/features/product/filterSlice";
 
 const ViewProducts = () => {
   const dispatch = useDispatch();
@@ -23,7 +27,8 @@ const ViewProducts = () => {
   const { products, isLoading, isError, message } = useSelector(
     (state) => state.product
   );
-
+  const filteredProducts = useSelector(selectFilteredProducts);
+  // console.log(filteredProducts);
 
   useEffect(() => {
     if (isLoggedIn === true) {
@@ -62,11 +67,18 @@ const ViewProducts = () => {
   const itemsPerPage = 6;
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
+  const currentItems = filteredProducts.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
 
-
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
+    setItemOffset(newOffset);
+  };
   // End Pagination
 
-
+  useEffect(() => {
+    dispatch(FILTER_BY_SEARCH({ products, search }));
+  }, [products, search, dispatch]);
 
   return (
     <div className="product-list">
@@ -74,10 +86,15 @@ const ViewProducts = () => {
         <div className="--flex-between --flex-dir-column">
           <span>
             <h3>All Products</h3>
-
+            <p>
+              ~ <b>{filteredProducts.length} Products Found</b>
+            </p>
           </span>
           <span>
-            
+            <Search
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </span>
         </div>
 
@@ -109,12 +126,12 @@ const ViewProducts = () => {
                       <td>{shortenText(name, 16)}</td>
                       <td>{category}</td>
                       <td>
-                        {"$"}
+                        {"€"}
                         {price}
                       </td>
                       <td>{quantity}</td>
                       <td>
-                        {"$"}
+                        {"€"}
                         {price * quantity}
                       </td>
                       <td className="icons">
