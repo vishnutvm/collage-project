@@ -17,6 +17,8 @@ import {
 } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile/Profile";
 import Admin from "./pages/Admin/Admin";
+import NotFound from "./pages/404/notFound";
+import Shop from "./pages/shop/Shop";
 
 axios.defaults.withCredentials = true;
 
@@ -42,10 +44,13 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/admin/*" element={<Admin />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

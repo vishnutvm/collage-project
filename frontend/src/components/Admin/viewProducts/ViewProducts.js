@@ -11,7 +11,7 @@ import {
   deleteProduct,
   getProducts,
 } from "../../../redux/features/product/productSlice";
-import Search from "../../Admin/search/Search";
+import Search from "../../search/Search";
 import { Spinner } from "../../Loader/Loader";
 import { shortenText } from "../../../utils/utils";
 import { selectIsLoggedIn } from "../../../redux/features/auth/authSlice";

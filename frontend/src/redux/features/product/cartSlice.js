@@ -4,7 +4,7 @@ import cartService from "./cartService";
 import { getCartQuantityById } from "../../../utils/utils";
 const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
-// Apply discount to cart
+// Apply discoount to cart
 function applyDiscount(cartTotalAmount, discountPercentage) {
   var discountAmount = (discountPercentage / 100) * cartTotalAmount;
   var updatedTotal = cartTotalAmount - discountAmount;
