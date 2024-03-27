@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Header from "./pages/Header/Header";
-import Footer from "./pages/Footer/Footer";
+import Header from "./components/header/Header";
+import Footer from "./components/Footer/Footer";
 import Login from "../src/pages/Auth/Login";
+import Cart from "./pages/cart/Cart";
 import Register from "../src/pages/Auth/Register";
+import ProductDetails from "./components/product/productDetails/ProductDetails";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,11 +47,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/admin/*" element={<Admin />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

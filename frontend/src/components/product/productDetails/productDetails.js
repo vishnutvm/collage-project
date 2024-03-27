@@ -1,4 +1,4 @@
-import styles from "./ProductDetails/ProductDetails.module.scss";
+import styles from "./ProductDetails.module.scss";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,10 @@ import DOMPurify from "dompurify";
 // import StarsRating from "react-star-rate";
 import { addToWishlist } from "../../../redux/features/auth/authSlice";
 import StarRating from "react-star-ratings";
-import { calculateAverageRating, getCartQuantityById } from "../../../utils";
+import {
+  calculateAverageRating,
+  getCartQuantityById,
+} from "../../../utils/utils";
 import ProductRating from "../productRating/ProductRating";
 import { toast } from "react-toastify";
 import ProductRatingSummary from "../productRating/ProductRatingSummary";

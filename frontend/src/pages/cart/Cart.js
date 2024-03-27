@@ -24,7 +24,7 @@ import {
   SAVE_PAYMENT_METHOD,
   selectPaymentMethod,
 } from "../../redux/features/product/checkoutSlice";
-import { getCartQuantityById } from "../../utils";
+import { getCartQuantityById } from "../../utils/utils";
 import VerifyCoupon from "../../components/verifyCoupon/VerifyCoupon";
 
 const Cart = () => {
