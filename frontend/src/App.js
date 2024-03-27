@@ -21,6 +21,10 @@ import Profile from "./pages/Profile/Profile";
 import Admin from "./pages/Admin/Admin";
 import NotFound from "./pages/404/notFound";
 import Shop from "./pages/shop/Shop";
+import CheckoutDetails from "./pages/checkout/CheckoutDetails";
+import Checkout from "./pages/checkout/Checkout";
+import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
+import CheckoutPaypal from "./pages/checkout/CheckoutPaypal";
 
 axios.defaults.withCredentials = true;
 
@@ -55,6 +59,10 @@ const App = () => {
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-paypal" element={<CheckoutPaypal />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
         </Routes>
         <Footer />
       </BrowserRouter>

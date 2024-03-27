@@ -201,18 +201,6 @@ const Cart = () => {
                       <span className="custom-radio" />
                       Stripe
                     </label>
-                    <label htmlFor={"flutterwave"} className="radio-label">
-                      <input
-                        className="radio-input"
-                        type="radio"
-                        name={"paymentMethod"}
-                        id={"flutterwave"}
-                        value={"flutterwave"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                      />
-                      <span className="custom-radio" />
-                      Flutterwave
-                    </label>
                     <label htmlFor={"paypal"} className="radio-label">
                       <input
                         className="radio-input"
@@ -224,18 +212,6 @@ const Cart = () => {
                       />
                       <span className="custom-radio" />
                       Paypal
-                    </label>
-                    <label htmlFor={"wallet"} className="radio-label">
-                      <input
-                        className="radio-input"
-                        type="radio"
-                        name={"paymentMethod"}
-                        id={"wallet"}
-                        value={"wallet"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                      />
-                      <span className="custom-radio" />
-                      Wallet
                     </label>
                     <button
                       type="submit"

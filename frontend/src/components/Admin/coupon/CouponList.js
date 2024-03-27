@@ -9,7 +9,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const CouponList = () => {
-  const { isLoading, coupons } = useSelector((state) => state.coupon);
+  const {  coupons } = useSelector((state) => state.coupon);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -88,4 +88,3 @@ const CouponList = () => {
 };
 
 export default CouponList;
-    
