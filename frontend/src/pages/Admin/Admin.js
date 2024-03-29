@@ -9,6 +9,9 @@ import AddProduct from "../../components/Admin/addProduct/AddProduct";
 import ViewProducts from "../../components/Admin/viewProducts/ViewProducts";
 import EditProduct from "../../components/Admin/editProduct/EditProduct";
 import Coupon from "../../components/Admin/coupon/Coupon";
+import OrderDetails from "../../components/Admin/orderDetails/OrderDetails";
+import Orders from "../../components/Admin/orders/Orders";
+
 
 const Admin = () => {
   return (
@@ -24,6 +27,8 @@ const Admin = () => {
           <Route path="add-product" element={<AddProduct />} />
           <Route path="all-products" element={<ViewProducts />} />
           <Route path="edit-product/:id" element={<EditProduct />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="order-details/:id" element={<OrderDetails />} />
           <Route path="coupon" element={<Coupon />} />
         </Routes>
       </div>
