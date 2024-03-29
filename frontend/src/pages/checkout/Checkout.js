@@ -38,7 +38,7 @@ const Checkout = () => {
     dispatch(CALCULATE_TOTAL_QUANTITY());
   }, [dispatch, cartItems, coupon]);
 
-  const description = `eShop payment: email: ${customerEmail}, Amount: ${totalAmount}`;
+  const description = `Amplemart payment: email: ${customerEmail}, Amount: ${totalAmount}`;
 
   const productIDs = extractIdAndCartQuantity(cartItems);
   // console.log(newCartItems);

@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Order = require("../models/orderModel");
 const { calculateTotalPrice } = require("../utils");
 const Product = require("../models/productModel");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const axios = require("axios");
 const User = require("../models/userModel");
 const { orderSuccessEmail } = require("../emailTemplates/orderTemplate");
@@ -128,7 +128,7 @@ const payWithStripe = asyncHandler(async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: orderAmount,
-    currency: "eur",
+    currency: "usd",
     automatic_payment_methods: {
       enabled: true,
     },
@@ -154,62 +154,10 @@ const payWithStripe = asyncHandler(async (req, res) => {
   });
 });
 
-// Verify FLW Payment
-const verifyFlwPayment = asyncHandler(async (req, res) => {
-  const { transaction_id } = req.query;
-
-  // Confirm transaction
-  const url = `https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`;
-
-  const response = await axios({
-    url,
-    method: "get",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: process.env.FLW_SECRET_KEY,
-    },
-  });
-
-  // console.log(response.data.data);
-  const { amount, customer, tx_ref } = response.data.data;
-
-  const successURL =
-    process.env.FRONTEND_URL +
-    `/checkout-flutterwave?payment=successful&ref=${tx_ref}`;
-  const failureURL =
-    process.env.FRONTEND_URL + "/checkout-flutterwave?payment=failed";
-  if (req.query.status === "successful") {
-    res.redirect(successURL);
-  } else {
-    res.redirect(failureURL);
-  }
-});
-
-
-const updateProductQuantity = async (cartItems) => {
-  // Update Product quantity
-  let bulkOption = cartItems.map((product) => {
-    return {
-      updateOne: {
-        filter: { _id: product._id }, // IMPORTANT item.product
-        update: {
-          $inc: {
-            quantity: -product.cartQuantity,
-            sold: +product.cartQuantity,
-          },
-        },
-      },
-    };
-  });
-  let updatedProduct = await Product.bulkWrite(bulkOption, {});
-};
-
 module.exports = {
   createOrder,
   getOrders,
   getOrder,
   updateOrderStatus,
   payWithStripe,
-  verifyFlwPayment,
 };

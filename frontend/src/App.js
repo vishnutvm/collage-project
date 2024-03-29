@@ -25,6 +25,7 @@ import CheckoutDetails from "./pages/checkout/CheckoutDetails";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import CheckoutPaypal from "./pages/checkout/CheckoutPaypal";
+import OrderHistory from "./pages/orderHistory/OrderHistory";
 
 axios.defaults.withCredentials = true;
 
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-paypal" element={<CheckoutPaypal />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
+          <Route path="/order-history" element={<OrderHistory />} />
         </Routes>
         <Footer />
       </BrowserRouter>
