@@ -6,6 +6,7 @@ import categoryReducer from "../redux/features/categoryAndBrand/categoryAndBrand
 import cartReducer from "../redux/features/product/cartSlice";
 import checkoutReducer from "../redux/features/product/checkoutSlice";
 import couponReducer from "../redux/features/coupon/couponSlice";
+import orderReducer from "../redux/features/product/orderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     cart: cartReducer,
     checkout: checkoutReducer,
     coupon: couponReducer,
+    order: orderReducer,
   },
 });
