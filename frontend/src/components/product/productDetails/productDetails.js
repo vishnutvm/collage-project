@@ -158,12 +158,6 @@ const ProductDetails = () => {
                   </p>
                   <p>{product?.quantity}</p>
                 </div>
-                <div className={styles.property}>
-                  <p>
-                    <b>Sold: </b>
-                  </p>
-                  <p>{product?.sold}</p>
-                </div>
 
                 <div className={styles.count}>
                   {isCartAdded < 0 ? null : (

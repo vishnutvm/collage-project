@@ -76,7 +76,7 @@ const CheckoutPaypal = () => {
 
   const initialOptions = {
     "client-id": process.env.REACT_APP_PAYPAL_CID,
-    currency: "USD",
+    currency: "EUR",
     intent: "capture",
     // "data-client-token": "abc123xyz==",
   };
@@ -93,7 +93,7 @@ const CheckoutPaypal = () => {
 
         body: JSON.stringify({
           product: {
-            description: "Shopito product",
+            description: "Amplemart product",
             cost: cartTotalAmount,
           },
           purchase_units: [
