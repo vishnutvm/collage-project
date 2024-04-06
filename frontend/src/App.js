@@ -27,6 +27,8 @@ import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import CheckoutPaypal from "./pages/checkout/CheckoutPaypal";
 import OrderHistory from "./pages/orderHistory/OrderHistory";
 import Order from "./pages/orderDetails/Order";
+import ReviewProducts from "./pages/reviewProducts/ReviewProducts";
+import { AnimatePresence } from "framer-motion";
 
 axios.defaults.withCredentials = true;
 
@@ -48,27 +50,30 @@ const App = () => {
 
   return (
     <>
+    <ToastContainer />
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product-details/:id" element={<ProductDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/admin/*" element={<Admin />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/checkout-details" element={<CheckoutDetails />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout-paypal" element={<CheckoutPaypal />} />
-          <Route path="/checkout-success" element={<CheckoutSuccess />} />
-          <Route path="/order-history" element={<OrderHistory />} />
-          <Route path="/order-details/:id" element={<Order />} />
-          {/* <Route path="/review-product/:id" element={<ReviewProducts />} /> */}
-        </Routes>
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product-details/:id" element={<ProductDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/admin/*" element={<Admin />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/checkout-details" element={<CheckoutDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout-paypal" element={<CheckoutPaypal />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path="/order-history" element={<OrderHistory />} />
+            <Route path="/order-details/:id" element={<Order />} />
+            <Route path="/review-product/:id" element={<ReviewProducts />} />
+          </Routes>
+        </AnimatePresence>
         <Footer />
       </BrowserRouter>
       ;

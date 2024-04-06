@@ -11,7 +11,7 @@ import EditProduct from "../../components/Admin/editProduct/EditProduct";
 import Coupon from "../../components/Admin/coupon/Coupon";
 import OrderDetails from "../../components/Admin/orderDetails/OrderDetails";
 import Orders from "../../components/Admin/orders/Orders";
-
+import Home from "../../components/Admin/home/Home";
 
 const Admin = () => {
   return (
@@ -20,16 +20,16 @@ const Admin = () => {
         <Navbar />
       </div>
       <div className={styles.content}>
-        <AdminHome />
         <Routes>
-          <Route path="category" element={<Category />} />
-          <Route path="brand" element={<Brand />} />
-          <Route path="add-product" element={<AddProduct />} />
+          <Route path="home" element={<Home />} />
           <Route path="all-products" element={<ViewProducts />} />
+          <Route path="add-product" element={<AddProduct />} />
           <Route path="edit-product/:id" element={<EditProduct />} />
           <Route path="orders" element={<Orders />} />
           <Route path="order-details/:id" element={<OrderDetails />} />
           <Route path="coupon" element={<Coupon />} />
+          <Route path="category" element={<Category />} />
+          <Route path="brand" element={<Brand />} />
         </Routes>
       </div>
     </div>
