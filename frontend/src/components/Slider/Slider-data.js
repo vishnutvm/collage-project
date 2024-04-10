@@ -1,13 +1,21 @@
 export const sliderData = [
 
     {
-      image: "https://i.ibb.co/Bz5v6xs/gadget.jpg",
-      heading: "Hot Gadgets",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: "https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg",
     },
     {
-      image: "https://i.ibb.co/ZVQHTjk/phone.jpg",
-      heading: "Android Phones",
-      desc: "Up to 30% off on all onsale proucts.",
+      image: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/march/brands/GW/Under_1499_Tallhero_3000x1200._CB561212093_.jpg",
+    },
+    {
+      image: "https://m.media-amazon.com/images/I/61CiqVTRBEL._SX3000_.jpg",
+    },
+    {
+      image: "https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg",
+    },
+    {
+      image: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/march/brands/GW/Under_1499_Tallhero_3000x1200._CB561212093_.jpg",
+    },
+    {
+      image: "https://m.media-amazon.com/images/I/61CiqVTRBEL._SX3000_.jpg",
     },
   ];

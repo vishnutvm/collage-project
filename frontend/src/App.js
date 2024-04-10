@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "../src/pages/Auth/Login";
 import Cart from "./pages/cart/Cart";
 import Register from "../src/pages/Auth/Register";
-import ProductDetails from "./components/product/productDetails/ProductDetails";
+import ProductDetails from "./components/product/productDetails/productDetails.js";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -76,7 +76,6 @@ const App = () => {
         </AnimatePresence>
         <Footer />
       </BrowserRouter>
-      ;
     </>
   );
 };

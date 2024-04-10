@@ -1,6 +1,5 @@
 import React from "react";
 import "./ProductCategory.scss";
-import { useNavigate } from "react-router-dom";
 import Category from "./Category";
 
 const ProductCategory = () => {
